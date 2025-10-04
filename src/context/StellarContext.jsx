@@ -34,6 +34,7 @@ export const StellarProvider = ({ children }) => {
   const [balance, setBalance] = useState(null);
   const [network, setNetwork] = useState("TESTNET"); // or 'PUBLIC'
   const [loading, setLoading] = useState(false);
+  const [xlmPrice, setXlmPrice] = useState(null); // XLM price in USD
 
   const server =
     network === "TESTNET"
@@ -46,6 +47,7 @@ export const StellarProvider = ({ children }) => {
   // Check wallet connection on mount
   useEffect(() => {
     checkConnection();
+    fetchXlmPrice(); // Fetch XLM price on mount
   }, []);
 
   // Load account balance when connected
@@ -54,6 +56,24 @@ export const StellarProvider = ({ children }) => {
       loadAccountBalance();
     }
   }, [publicKey, network]);
+
+  // Fetch XLM price from CoinGecko API
+  const fetchXlmPrice = async () => {
+    try {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=stellar&vs_currencies=usd"
+      );
+      const data = await response.json();
+      if (data.stellar && data.stellar.usd) {
+        setXlmPrice(data.stellar.usd);
+        console.log("XLM Price:", data.stellar.usd);
+      }
+    } catch (error) {
+      console.error("Error fetching XLM price:", error);
+      // Set a fallback price if API fails
+      setXlmPrice(0.12); // Approximate fallback price
+    }
+  };
 
   const checkConnection = async () => {
     try {
@@ -327,12 +347,14 @@ export const StellarProvider = ({ children }) => {
     balance,
     network,
     loading,
+    xlmPrice,
     connectWallet,
     disconnectWallet,
     sendPayment,
     createTrustline,
     loadAccountBalance,
     switchNetwork,
+    fetchXlmPrice,
     server,
     networkPassphrase,
   };

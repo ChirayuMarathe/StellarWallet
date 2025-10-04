@@ -65,6 +65,8 @@ The protocol has completed security audits by Trail of Bits and CertiK, with tes
     creator: {
       name: "Stellar Labs Foundation",
       address: "GDXL...K3PQ",
+      stellarAddress:
+        "GCZYLNGU4CA5NAWBZBHGKX7FEQCMIGZDSZFH3CQWHZNCT2OWQDK5LE5P", // Testnet address
       verified: true,
       memberSince: "2023",
     },
@@ -199,6 +201,8 @@ We've partnered with several major DeFi protocols planning to integrate our iden
     creator: {
       name: "Identity Protocol DAO",
       address: "GBID...M7XY",
+      stellarAddress:
+        "GBIDYTPHZZ7M7XYTQKXN2RQ5PCBW5ZNQNM7XY2VXFVVT2QKXM7XYBIDM", // Testnet address
       verified: true,
       memberSince: "2024",
     },
@@ -319,6 +323,8 @@ Beta testing with 500+ creators has shown 90% reduction in transaction costs com
     creator: {
       name: "NFT Labs Collective",
       address: "GNFT...R9WZ",
+      stellarAddress:
+        "GNFTLABSR9WZQPVX2HKNT3M5LXBWY7AQVNFT2LABSQPVX9WZGNFTLABS", // Testnet address
       verified: true,
       memberSince: "2023",
     },
@@ -454,6 +460,7 @@ Currently in audit phase with mainnet launch planned for Q2 2026.`,
     creator: {
       name: "Stellar Scaling Labs",
       address: "GSL2...K8NM",
+      stellarAddress: "GSL2K8NMQPVX2HK3M5LXBWY7AQVNFT2LABSQPVX9WZGSL2K8NMQPVX", // Testnet address
       verified: true,
       memberSince: "2024",
     },
@@ -578,6 +585,7 @@ Open-source core with premium enterprise features. All proceeds fund ongoing res
     creator: {
       name: "Secure Smart Contract Foundation",
       address: "GSEC...P4RT",
+      stellarAddress: "GSECP4RTQPVX2HK3M5LXBWY7AQVNFT2LABSQPVX9WZGSECP4RTQPVX", // Testnet address
       verified: true,
       memberSince: "2024",
     },
@@ -698,6 +706,7 @@ Cryptographic foundations audited by academic cryptography experts from MIT and 
     creator: {
       name: "Privacy Protocol DAO",
       address: "GPRV...L6QM",
+      stellarAddress: "GPRVL6QMXY8ZVWPRVL6QMXY8ZVWPRVL6QMXY8ZVWPRVL6QMXY8ZV", // Testnet address
       verified: true,
       memberSince: "2023",
     },

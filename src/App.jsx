@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,11 +26,13 @@ import About from "./pages/About";
 import Onboarding from "./pages/Onboarding";
 import CreateProject from "./pages/CreateProject";
 import Profile from "./pages/Profile";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 // Context
 import { StellarProvider } from "./context/StellarContext";
 import { ProjectsProvider } from "./context/ProjectsContext";
-import { UserProvider } from "./context/UserContext";
+import { UserProvider, useUser } from "./context/UserContext";
 
 // Effects
 import ClickSpark from "./components/effects/ClickSpark";
@@ -43,6 +46,17 @@ function ScrollToTop() {
   }, [pathname]);
 
   return null;
+}
+
+// Protected Route Component
+function ProtectedRoute({ children }) {
+  const { isLoggedIn } = useUser();
+
+  if (!isLoggedIn) {
+    return <Navigate to="/signin" replace />;
+  }
+
+  return children;
 }
 
 // Background Animation Component
@@ -130,6 +144,20 @@ const AnimatedBackground = () => {
   );
 };
 
+// Layout wrapper component
+function LayoutWrapper({ children }) {
+  const location = useLocation();
+  const hideNavFooter = ["/signin", "/signup"].includes(location.pathname);
+
+  return (
+    <>
+      {!hideNavFooter && <Navbar />}
+      {children}
+      {!hideNavFooter && <Footer />}
+    </>
+  );
+}
+
 function App() {
   return (
     <StellarProvider>
@@ -148,32 +176,113 @@ function App() {
                 <AnimatedBackground />
 
                 <div className="relative z-10">
-                  <Navbar />
+                  <LayoutWrapper>
+                    <AnimatePresence mode="wait">
+                      <Routes>
+                        {/* Public Routes */}
+                        <Route path="/signin" element={<SignIn />} />
+                        <Route path="/signup" element={<SignUp />} />
 
-                  <AnimatePresence mode="wait">
-                    <Routes>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/projects/all" element={<Projects />} />
-                      <Route
-                        path="/project/:slug"
-                        element={<ProjectDetail />}
-                      />
-                      <Route path="/donate/:slug" element={<Donate />} />
-                      <Route path="/giveconomy" element={<GIVeconomy />} />
-                      <Route path="/givfarm" element={<GIVfarm />} />
-                      <Route path="/join" element={<Community />} />
-                      <Route path="/causes/all" element={<Causes />} />
-                      <Route path="/about" element={<About />} />
-                      <Route path="/onboarding" element={<Onboarding />} />
-                      <Route
-                        path="/create-project"
-                        element={<CreateProject />}
-                      />
-                      <Route path="/profile" element={<Profile />} />
-                    </Routes>
-                  </AnimatePresence>
-
-                  <Footer />
+                        {/* Protected Routes */}
+                        <Route
+                          path="/"
+                          element={
+                            <ProtectedRoute>
+                              <Home />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/projects/all"
+                          element={
+                            <ProtectedRoute>
+                              <Projects />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/project/:slug"
+                          element={
+                            <ProtectedRoute>
+                              <ProjectDetail />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/donate/:slug"
+                          element={
+                            <ProtectedRoute>
+                              <Donate />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/giveconomy"
+                          element={
+                            <ProtectedRoute>
+                              <GIVeconomy />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/givfarm"
+                          element={
+                            <ProtectedRoute>
+                              <GIVfarm />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/join"
+                          element={
+                            <ProtectedRoute>
+                              <Community />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/causes/all"
+                          element={
+                            <ProtectedRoute>
+                              <Causes />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/about"
+                          element={
+                            <ProtectedRoute>
+                              <About />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/onboarding"
+                          element={
+                            <ProtectedRoute>
+                              <Onboarding />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/create-project"
+                          element={
+                            <ProtectedRoute>
+                              <CreateProject />
+                            </ProtectedRoute>
+                          }
+                        />
+                        <Route
+                          path="/profile"
+                          element={
+                            <ProtectedRoute>
+                              <Profile />
+                            </ProtectedRoute>
+                          }
+                        />
+                      </Routes>
+                    </AnimatePresence>
+                  </LayoutWrapper>
                 </div>
 
                 <Toaster

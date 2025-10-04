@@ -1,38 +1,49 @@
 import { motion } from "framer-motion";
-import { Coins, TrendingUp, Gift, Zap, ArrowRight, Users } from "lucide-react";
+import {
+  Coins,
+  TrendingUp,
+  Gift,
+  Zap,
+  ArrowRight,
+  Users,
+  Wallet,
+} from "lucide-react";
 import { Link } from "react-router-dom";
+import { useStellar } from "../context/StellarContext";
 
 const GIVeconomy = () => {
+  const { isConnected, connectWallet, publicKey, balance } = useStellar();
+
   const features = [
     {
       icon: Coins,
-      title: "GIV Token",
+      title: "CHAIN Token",
       description:
-        "The native governance and utility token powering the ChainFund ecosystem.",
+        "The native governance and utility token powering the ChainFund ecosystem on Stellar.",
       color: "from-yellow-500 to-orange-500",
       link: "#",
     },
     {
       icon: Gift,
-      title: "GIVbacks",
+      title: "CHAINbacks",
       description:
-        "Get rewarded with GIV tokens when you donate to verified projects.",
+        "Get rewarded with CHAIN tokens when you donate to verified projects on Stellar.",
       color: "from-purple-500 to-pink-500",
       link: "#",
     },
     {
       icon: TrendingUp,
-      title: "GIVpower",
+      title: "CHAINpower",
       description:
-        "Stake your GIV to boost projects and earn additional rewards.",
+        "Stake your CHAIN tokens to boost projects and earn additional rewards.",
       color: "from-blue-500 to-cyan-500",
       link: "#",
     },
     {
       icon: Zap,
-      title: "GIVstream",
+      title: "CHAINstream",
       description:
-        "Continuous token distribution aligned with long-term commitment.",
+        "Continuous token distribution aligned with long-term commitment on Stellar network.",
       color: "from-green-500 to-emerald-500",
       link: "#",
     },
@@ -74,20 +85,52 @@ const GIVeconomy = () => {
             }}
             className="text-gray-400 max-w-3xl mx-auto mb-8"
           >
-            GIVeconomy rewards and empowers those who give to projects, society,
-            and the world. Participate in the revolution of philanthropy on the
-            Stellar blockchain.
+            ChainFund Economy rewards and empowers those who give to projects,
+            society, and the world. Participate in the revolution of
+            philanthropy on the Stellar blockchain.
           </p>
-          <Link to="/givfarm">
+
+          {/* Wallet Connection Section */}
+          {!isConnected ? (
             <motion.button
+              onClick={connectWallet}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-primary flex items-center space-x-2 mx-auto"
+              className="btn-primary flex items-center space-x-2 mx-auto mb-8"
             >
-              <span>Get Started</span>
-              <ArrowRight className="w-5 h-5" />
+              <Wallet className="w-5 h-5" />
+              <span>Connect Stellar Wallet</span>
             </motion.button>
-          </Link>
+          ) : (
+            <div className="mb-8">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6 max-w-md mx-auto mb-4">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-gray-400 text-sm">
+                    Connected Wallet
+                  </span>
+                  <span className="text-white font-semibold text-sm">
+                    {publicKey?.slice(0, 6)}...{publicKey?.slice(-4)}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-400 text-sm">Balance</span>
+                  <span className="text-white font-semibold">
+                    {balance || "0"} XLM
+                  </span>
+                </div>
+              </div>
+              <Link to="/givfarm">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-primary flex items-center space-x-2 mx-auto"
+                >
+                  <span>Start Earning Rewards</span>
+                  <ArrowRight className="w-5 h-5" />
+                </motion.button>
+              </Link>
+            </div>
+          )}
         </motion.div>
 
         {/* Features Grid */}
@@ -158,8 +201,8 @@ const GIVeconomy = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {[
-            { value: "10M+", label: "GIV Distributed", icon: Coins },
-            { value: "$2M+", label: "GIVbacks Rewarded", icon: Gift },
+            { value: "10M+", label: "CHAIN Distributed", icon: Coins },
+            { value: "$2M+", label: "CHAINbacks Rewarded", icon: Gift },
             { value: "5K+", label: "Active Participants", icon: Users },
           ].map((stat, index) => (
             <motion.div

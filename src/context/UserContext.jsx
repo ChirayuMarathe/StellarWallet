@@ -108,6 +108,87 @@ export const UserProvider = ({ children }) => {
     localStorage.setItem("stellar_anonymous", "true");
   };
 
+  const login = async (email, password) => {
+    // Simulate API call - replace with actual authentication
+    try {
+      // Check if user exists in localStorage (for demo purposes)
+      const storedUsers = localStorage.getItem("stellar_all_users");
+      const users = storedUsers ? JSON.parse(storedUsers) : [];
+
+      const foundUser = users.find(
+        (u) => u.email === email && u.password === password
+      );
+
+      if (foundUser) {
+        const userWithoutPassword = { ...foundUser };
+        delete userWithoutPassword.password;
+        setUser(userWithoutPassword);
+        setIsAnonymous(false);
+        return true;
+      }
+
+      // For demo: allow any login
+      const demoUser = {
+        id: Date.now().toString(),
+        email,
+        name: email.split("@")[0],
+        createdAt: new Date().toISOString(),
+        totalDonations: 0,
+        donationHistory: [],
+        projectsCreated: [],
+        projectsSupported: [],
+        upvotedProjects: [],
+        downvotedProjects: [],
+      };
+      setUser(demoUser);
+      setIsAnonymous(false);
+      return true;
+    } catch (error) {
+      console.error("Login error:", error);
+      return false;
+    }
+  };
+
+  const register = async (name, email, password) => {
+    // Simulate API call - replace with actual authentication
+    try {
+      // Store user in localStorage (for demo purposes)
+      const storedUsers = localStorage.getItem("stellar_all_users");
+      const users = storedUsers ? JSON.parse(storedUsers) : [];
+
+      // Check if user already exists
+      if (users.find((u) => u.email === email)) {
+        return false;
+      }
+
+      const newUser = {
+        id: Date.now().toString(),
+        name,
+        email,
+        password, // In production, this should be hashed
+        createdAt: new Date().toISOString(),
+        totalDonations: 0,
+        donationHistory: [],
+        projectsCreated: [],
+        projectsSupported: [],
+        upvotedProjects: [],
+        downvotedProjects: [],
+      };
+
+      users.push(newUser);
+      localStorage.setItem("stellar_all_users", JSON.stringify(users));
+
+      const userWithoutPassword = { ...newUser };
+      delete userWithoutPassword.password;
+      setUser(userWithoutPassword);
+      setIsAnonymous(false);
+      return true;
+    } catch (error) {
+      console.error("Registration error:", error);
+      return false;
+    }
+  };
+
   const value = {
     user,
     isAnonymous,
@@ -118,6 +199,8 @@ export const UserProvider = ({ children }) => {
     addCreatedProject,
     toggleAnonymous,
     logout,
+    login,
+    register,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

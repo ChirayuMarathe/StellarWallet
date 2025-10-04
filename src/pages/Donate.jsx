@@ -29,6 +29,7 @@ const Donate = () => {
     sendPayment,
     balance,
     loading,
+    xlmPrice,
   } = useStellar();
 
   const [donationAmount, setDonationAmount] = useState("");
@@ -38,6 +39,12 @@ const Donate = () => {
   const [givethDonation, setGivethDonation] = useState(10);
   const [memo, setMemo] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+
+  // Format address helper function
+  const formatAddress = (address) => {
+    if (!address) return "";
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  };
 
   // Get project data dynamically
   const project = getProjectBySlug(slug);
@@ -67,17 +74,21 @@ const Donate = () => {
       return;
     }
 
-    if (balance && parseFloat(donationAmount) > parseFloat(balance.xlm)) {
-      toast.error("Insufficient balance");
+    // Convert USD to XLM using current price
+    const usdAmount = parseFloat(donationAmount);
+    const givethUsdAmount = (usdAmount * givethDonation) / 100;
+    const totalUsdAmount = usdAmount + givethUsdAmount;
+
+    // Calculate XLM amount based on current price
+    const xlmAmount = xlmPrice ? totalUsdAmount / xlmPrice : totalUsdAmount;
+
+    if (balance && xlmAmount > parseFloat(balance.xlm)) {
+      toast.error("Insufficient XLM balance");
       return;
     }
 
     try {
       setIsProcessing(true);
-
-      const baseAmount = parseFloat(donationAmount);
-      const givethAmount = (baseAmount * givethDonation) / 100;
-      const totalAmount = baseAmount + givethAmount;
 
       const memoText = `Donation to ${project.title}${
         isAnonymous ? " (Anonymous)" : ""
@@ -85,7 +96,7 @@ const Donate = () => {
 
       await sendPayment({
         destination: project.creator.stellarAddress,
-        amount: totalAmount.toString(),
+        amount: xlmAmount.toFixed(7), // Stellar supports 7 decimal places
         asset: "native",
         memo: memo || memoText,
       });
@@ -106,6 +117,19 @@ const Donate = () => {
   const totalAmount = donationAmount
     ? (parseFloat(donationAmount) * (1 + givethDonation / 100)).toFixed(2)
     : "0.00";
+
+  const totalXlmAmount =
+    xlmPrice && donationAmount
+      ? (
+          (parseFloat(donationAmount) * (1 + givethDonation / 100)) /
+          xlmPrice
+        ).toFixed(4)
+      : "0.0000";
+
+  const balanceInUsd =
+    balance && xlmPrice
+      ? (parseFloat(balance.xlm) * xlmPrice).toFixed(2)
+      : null;
 
   return (
     <motion.div
@@ -201,17 +225,24 @@ const Donate = () => {
                         Wallet Connected
                       </h3>
                       <p className="text-sm text-gray-400">
-                        {publicKey?.slice(0, 8)}...{publicKey?.slice(-8)}
+                        {formatAddress(publicKey)}
                       </p>
                     </div>
                   </div>
                   {balance && (
-                    <p className="text-sm text-gray-400">
-                      Available:{" "}
-                      <span className="text-white font-semibold">
-                        {parseFloat(balance.xlm).toFixed(2)} XLM
-                      </span>
-                    </p>
+                    <div className="space-y-1">
+                      <p className="text-sm text-gray-400">
+                        Available:{" "}
+                        <span className="text-white font-semibold">
+                          {parseFloat(balance.xlm).toFixed(2)} XLM
+                        </span>
+                      </p>
+                      {balanceInUsd && (
+                        <p className="text-xs text-gray-500">
+                          ≈ ${balanceInUsd} USD
+                        </p>
+                      )}
+                    </div>
                   )}
                 </motion.div>
               )}
@@ -394,33 +425,53 @@ const Donate = () => {
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="card sticky top-32"
+                transition={{ delay: 0.2 }}
+                className="card sticky top-24"
               >
-                <h3 className="text-lg font-semibold mb-6 text-white">
+                <h3 className="text-xl font-semibold mb-6 text-white">
                   Donation Summary
                 </h3>
-
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between text-gray-400">
                     <span>Project Donation</span>
-                    <span className="text-white font-semibold">
-                      ${donationAmount || "0.00"}
-                    </span>
+                    <div className="text-right">
+                      <div className="text-white font-semibold">
+                        ${donationAmount || "0.00"}
+                      </div>
+                      {xlmPrice && donationAmount && (
+                        <div className="text-xs text-gray-500">
+                          ≈ {(parseFloat(donationAmount) / xlmPrice).toFixed(4)}{" "}
+                          XLM
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   {givethDonation > 0 && (
                     <div className="flex justify-between text-gray-400">
                       <span>Platform Support ({givethDonation}%)</span>
-                      <span className="text-white font-semibold">
-                        $
-                        {donationAmount
-                          ? (
+                      <div className="text-right">
+                        <div className="text-white font-semibold">
+                          $
+                          {donationAmount
+                            ? (
+                                (parseFloat(donationAmount) * givethDonation) /
+                                100
+                              ).toFixed(2)
+                            : "0.00"}
+                        </div>
+                        {xlmPrice && donationAmount && (
+                          <div className="text-xs text-gray-500">
+                            ≈{" "}
+                            {(
                               (parseFloat(donationAmount) * givethDonation) /
-                              100
-                            ).toFixed(2)
-                          : "0.00"}
-                      </span>
+                              100 /
+                              xlmPrice
+                            ).toFixed(4)}{" "}
+                            XLM
+                          </div>
+                        )}
+                      </div>
                     </div>
                   )}
 
@@ -429,11 +480,26 @@ const Donate = () => {
                       <span className="text-lg font-semibold text-white">
                         Total
                       </span>
-                      <span className="text-2xl font-bold gradient-text">
-                        ${totalAmount}
-                      </span>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold gradient-text">
+                          ${totalAmount}
+                        </div>
+                        {xlmPrice && (
+                          <div className="text-sm text-gray-400 mt-1">
+                            ≈ {totalXlmAmount} XLM
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
+
+                  {xlmPrice && (
+                    <div className="pt-4 border-t border-dark-700/50">
+                      <div className="text-xs text-gray-500 text-center">
+                        Current XLM Price: ${xlmPrice.toFixed(4)} USD
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <motion.button
