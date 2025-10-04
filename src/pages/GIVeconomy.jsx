@@ -8,7 +8,7 @@ const GIVeconomy = () => {
       icon: Coins,
       title: "GIV Token",
       description:
-        "The native governance and utility token powering the Stellar Giveth ecosystem.",
+        "The native governance and utility token powering the ChainFund ecosystem.",
       color: "from-yellow-500 to-orange-500",
       link: "#",
     },

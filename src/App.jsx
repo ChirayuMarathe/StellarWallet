@@ -31,6 +31,9 @@ import { StellarProvider } from "./context/StellarContext";
 import { ProjectsProvider } from "./context/ProjectsContext";
 import { UserProvider } from "./context/UserContext";
 
+// Effects
+import ClickSpark from "./components/effects/ClickSpark";
+
 // Scroll to top component
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -134,58 +137,72 @@ function App() {
         <ProjectsProvider>
           <Router>
             <ScrollToTop />
-            <div className="min-h-screen relative">
-              <AnimatedBackground />
+            <ClickSpark
+              sparkColor="#ffffff"
+              sparkSize={12}
+              sparkRadius={20}
+              sparkCount={8}
+              duration={500}
+            >
+              <div className="min-h-screen relative">
+                <AnimatedBackground />
 
-              <div className="relative z-10">
-                <Navbar />
+                <div className="relative z-10">
+                  <Navbar />
 
-                <AnimatePresence mode="wait">
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/projects/all" element={<Projects />} />
-                    <Route path="/project/:slug" element={<ProjectDetail />} />
-                    <Route path="/donate/:slug" element={<Donate />} />
-                    <Route path="/giveconomy" element={<GIVeconomy />} />
-                    <Route path="/givfarm" element={<GIVfarm />} />
-                    <Route path="/join" element={<Community />} />
-                    <Route path="/causes/all" element={<Causes />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/onboarding" element={<Onboarding />} />
-                    <Route path="/create-project" element={<CreateProject />} />
-                    <Route path="/profile" element={<Profile />} />
-                  </Routes>
-                </AnimatePresence>
+                  <AnimatePresence mode="wait">
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/projects/all" element={<Projects />} />
+                      <Route
+                        path="/project/:slug"
+                        element={<ProjectDetail />}
+                      />
+                      <Route path="/donate/:slug" element={<Donate />} />
+                      <Route path="/giveconomy" element={<GIVeconomy />} />
+                      <Route path="/givfarm" element={<GIVfarm />} />
+                      <Route path="/join" element={<Community />} />
+                      <Route path="/causes/all" element={<Causes />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/onboarding" element={<Onboarding />} />
+                      <Route
+                        path="/create-project"
+                        element={<CreateProject />}
+                      />
+                      <Route path="/profile" element={<Profile />} />
+                    </Routes>
+                  </AnimatePresence>
 
-                <Footer />
+                  <Footer />
+                </div>
+
+                <Toaster
+                  position="top-right"
+                  toastOptions={{
+                    duration: 4000,
+                    style: {
+                      background: "#1e293b",
+                      color: "#f1f5f9",
+                      border: "1px solid #334155",
+                      borderRadius: "12px",
+                      padding: "16px",
+                    },
+                    success: {
+                      iconTheme: {
+                        primary: "#0ea5e9",
+                        secondary: "#f1f5f9",
+                      },
+                    },
+                    error: {
+                      iconTheme: {
+                        primary: "#ef4444",
+                        secondary: "#f1f5f9",
+                      },
+                    },
+                  }}
+                />
               </div>
-
-              <Toaster
-                position="top-right"
-                toastOptions={{
-                  duration: 4000,
-                  style: {
-                    background: "#1e293b",
-                    color: "#f1f5f9",
-                    border: "1px solid #334155",
-                    borderRadius: "12px",
-                    padding: "16px",
-                  },
-                  success: {
-                    iconTheme: {
-                      primary: "#0ea5e9",
-                      secondary: "#f1f5f9",
-                    },
-                  },
-                  error: {
-                    iconTheme: {
-                      primary: "#ef4444",
-                      secondary: "#f1f5f9",
-                    },
-                  },
-                }}
-              />
-            </div>
+            </ClickSpark>
           </Router>
         </ProjectsProvider>
       </UserProvider>

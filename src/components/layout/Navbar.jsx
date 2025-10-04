@@ -87,7 +87,7 @@ const Navbar = () => {
               <Globe className="w-6 h-6 text-white" />
             </motion.div>
             <span className="text-2xl font-display font-bold gradient-text">
-              Stellar Giveth
+              ChainFund
             </span>
           </Link>
 
@@ -138,84 +138,73 @@ const Navbar = () => {
           </div>
 
           {/* Wallet Connection & Network Selector */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3">
             {/* Profile Button */}
-            {isLoggedIn ? (
-              <Link to="/profile">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center space-x-2 px-4 py-2 bg-black border border-white/20 rounded-xl text-white hover:border-white/40 transition-all duration-300"
-                  style={{
-                    fontFamily: "Helvetica, Arial, sans-serif",
-                    fontWeight: "400",
-                    fontSize: "0.875rem",
-                    letterSpacing: "0.05em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  <User className="w-4 h-4" />
-                  <span>{user?.name || "Profile"}</span>
-                </motion.button>
-              </Link>
-            ) : (
-              <Link to="/profile">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center space-x-2 px-4 py-2 bg-black border border-white/10 rounded-xl text-gray-400 hover:text-white hover:border-white/20 transition-all duration-300"
-                  style={{
-                    fontFamily: "Helvetica, Arial, sans-serif",
-                    fontWeight: "300",
-                    fontSize: "0.875rem",
-                    letterSpacing: "0.05em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  <User className="w-4 h-4" />
-                  <span>Sign In</span>
-                </motion.button>
-              </Link>
-            )}
-
-            {/* Network Selector */}
-            {isConnected && (
-              <select
-                value={network}
-                onChange={(e) => switchNetwork(e.target.value)}
-                className="px-4 py-2 bg-dark-800/50 border border-dark-700 rounded-lg text-sm text-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
+            <Link to="/profile">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
+                  isLoggedIn
+                    ? "text-white hover:bg-white/5"
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                }`}
               >
-                <option value="TESTNET">Testnet</option>
-                <option value="PUBLIC">Mainnet</option>
-              </select>
+                <User className="w-4 h-4" />
+                <span>{isLoggedIn ? user?.name || "Profile" : "Sign In"}</span>
+              </motion.button>
+            </Link>
+
+            {/* Network Selector - Only show when connected */}
+            {isConnected && (
+              <div className="relative">
+                <select
+                  value={network}
+                  onChange={(e) => switchNetwork(e.target.value)}
+                  className="appearance-none px-3 py-2 pr-8 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300 hover:border-white/20 focus:outline-none focus:border-white/30 transition-all duration-300 cursor-pointer"
+                >
+                  <option value="TESTNET">Testnet</option>
+                  <option value="PUBLIC">Mainnet</option>
+                </select>
+                <ChevronDown className="w-3 h-3 text-gray-400 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
             )}
 
-            {/* Wallet Button */}
+            {/* Wallet Button with Balance */}
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={handleWalletClick}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex items-center space-x-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 ${
                 isConnected
-                  ? "bg-gradient-to-r from-gray-600 to-gray-500 text-white"
+                  ? "bg-white/10 hover:bg-white/15 text-white border border-white/20"
                   : "btn-primary"
               }`}
             >
-              <Wallet className="w-5 h-5" />
-              <span>
-                {isConnected ? formatAddress(publicKey) : "Connect Wallet"}
-              </span>
+              {isConnected ? (
+                <>
+                  <Wallet className="w-4 h-4" />
+                  <div className="flex items-center space-x-3">
+                    <span className="font-mono">
+                      {formatAddress(publicKey)}
+                    </span>
+                    {balance && (
+                      <>
+                        <div className="w-px h-4 bg-white/20"></div>
+                        <span className="text-white/90">
+                          {parseFloat(balance.xlm).toFixed(2)} XLM
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Wallet className="w-4 h-4" />
+                  <span>Connect Wallet</span>
+                </>
+              )}
             </motion.button>
-
-            {/* Balance Display */}
-            {isConnected && balance && (
-              <div className="px-4 py-2 bg-dark-800/50 border border-dark-700 rounded-lg">
-                <span className="text-sm text-gray-400">Balance: </span>
-                <span className="text-sm font-semibold text-white">
-                  {parseFloat(balance.xlm).toFixed(2)} XLM
-                </span>
-              </div>
-            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -275,73 +264,54 @@ const Navbar = () => {
               {/* Mobile Wallet Section */}
               <div className="pt-4 border-t border-dark-700 space-y-3">
                 {/* Profile Button Mobile */}
-                {isLoggedIn ? (
-                  <Link
-                    to="/profile"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>
+                  <button
+                    className={`w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium text-sm transition-all duration-300 ${
+                      isLoggedIn
+                        ? "text-white bg-white/5 hover:bg-white/10"
+                        : "text-gray-400 bg-white/5 hover:text-white hover:bg-white/10"
+                    }`}
                   >
-                    <button
-                      className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-black border border-white/20 rounded-xl text-white"
-                      style={{
-                        fontFamily: "Helvetica, Arial, sans-serif",
-                        fontWeight: "400",
-                        fontSize: "0.875rem",
-                        letterSpacing: "0.05em",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      <User className="w-4 h-4" />
-                      <span>{user?.name || "Profile"}</span>
-                    </button>
-                  </Link>
-                ) : (
-                  <Link
-                    to="/profile"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <button
-                      className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-black border border-white/10 rounded-xl text-gray-400"
-                      style={{
-                        fontFamily: "Helvetica, Arial, sans-serif",
-                        fontWeight: "300",
-                        fontSize: "0.875rem",
-                        letterSpacing: "0.05em",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      <User className="w-4 h-4" />
-                      <span>Sign In</span>
-                    </button>
-                  </Link>
-                )}
+                    <User className="w-4 h-4" />
+                    <span>
+                      {isLoggedIn ? user?.name || "Profile" : "Sign In"}
+                    </span>
+                  </button>
+                </Link>
 
+                {/* Network Selector - Only show when connected */}
                 {isConnected && (
-                  <select
-                    value={network}
-                    onChange={(e) => switchNetwork(e.target.value)}
-                    className="w-full px-4 py-3 bg-dark-800/50 border border-dark-700 rounded-lg text-gray-300"
-                  >
-                    <option value="TESTNET">Testnet</option>
-                    <option value="PUBLIC">Mainnet</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      value={network}
+                      onChange={(e) => switchNetwork(e.target.value)}
+                      className="w-full appearance-none px-4 py-3 pr-10 bg-white/5 border border-white/10 rounded-lg text-gray-300 hover:border-white/20 focus:outline-none focus:border-white/30 transition-all duration-300"
+                    >
+                      <option value="TESTNET">Testnet</option>
+                      <option value="PUBLIC">Mainnet</option>
+                    </select>
+                    <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </div>
                 )}
 
+                {/* Wallet Button */}
                 <button
                   onClick={handleWalletClick}
-                  className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-xl font-semibold ${
+                  className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-medium text-sm transition-all duration-300 ${
                     isConnected
-                      ? "bg-gradient-to-r from-gray-600 to-gray-500 text-white"
+                      ? "bg-white/10 hover:bg-white/15 text-white border border-white/20"
                       : "btn-primary"
                   }`}
                 >
-                  <Wallet className="w-5 h-5" />
+                  <Wallet className="w-4 h-4" />
                   <span>
                     {isConnected ? formatAddress(publicKey) : "Connect Wallet"}
                   </span>
                 </button>
 
+                {/* Balance Display - Only show when connected */}
                 {isConnected && balance && (
-                  <div className="px-4 py-3 bg-dark-800/50 border border-dark-700 rounded-lg text-center">
+                  <div className="px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-center">
                     <span className="text-sm text-gray-400">Balance: </span>
                     <span className="text-sm font-semibold text-white">
                       {parseFloat(balance.xlm).toFixed(2)} XLM

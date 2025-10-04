@@ -106,7 +106,7 @@ const GIVfarm = () => {
             className="text-gray-400 max-w-3xl mx-auto"
           >
             Stake your GIV tokens or provide liquidity to earn attractive
-            rewards and support the Stellar Giveth ecosystem.
+            rewards and support the ChainFund ecosystem.
           </p>
         </motion.div>
 

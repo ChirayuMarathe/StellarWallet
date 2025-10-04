@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      process.env.MONGODB_URI || "mongodb://localhost:27017/stellar-giveth",
+      process.env.MONGODB_URI || "mongodb://localhost:27017/chainfund",
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -36,7 +36,7 @@ const connectDB = async () => {
 // Routes
 app.get("/", (req, res) => {
   res.json({
-    message: "Stellar Giveth API",
+    message: "ChainFund API",
     version: "1.0.0",
     endpoints: {
       projects: "/api/projects",

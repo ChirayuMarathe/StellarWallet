@@ -64,8 +64,8 @@ const HeroSection = () => {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Main Heading - Minimal Professional Style */}
+        <div className="max-w-6xl mx-auto text-center">
+          {/* Main Heading - Centered Professional Style */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ const HeroSection = () => {
             style={{
               fontFamily: "Helvetica, Arial, sans-serif",
               fontWeight: "300",
-              fontSize: "clamp(3rem, 8vw, 7rem)",
+              fontSize: "clamp(3rem, 8vw, 6.5rem)",
               letterSpacing: "-0.02em",
               lineHeight: "1.1",
             }}
@@ -84,7 +84,7 @@ const HeroSection = () => {
             <span style={{ fontWeight: "400" }}>PROTECTION</span>
           </motion.h1>
 
-          {/* Subtitle - Minimal Style */}
+          {/* Subtitle - Centered */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -92,22 +92,22 @@ const HeroSection = () => {
             style={{
               fontFamily: "Helvetica, Arial, sans-serif",
               fontWeight: "300",
-              fontSize: "clamp(0.875rem, 1.2vw, 1rem)",
-              letterSpacing: "0.05em",
-              lineHeight: "1.6",
+              fontSize: "clamp(0.875rem, 1.2vw, 1.05rem)",
+              letterSpacing: "0.02em",
+              lineHeight: "1.7",
             }}
-            className="text-gray-400 mb-16 max-w-md uppercase"
+            className="text-gray-400 mb-12 max-w-2xl mx-auto"
           >
-            Stellar Giveth's smart backup developed with cutting-edge
-            technology, ensures your private keys are secure and accessible.
+            ChainFund's smart backup developed with cutting-edge technology,
+            ensures your private keys are secure and accessible.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - Centered */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-start gap-4 mb-20"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
           >
             <Link to="/projects/all">
               <motion.button
@@ -119,7 +119,7 @@ const HeroSection = () => {
                   fontSize: "0.875rem",
                   letterSpacing: "0.05em",
                 }}
-                className="px-8 py-3 bg-white text-black rounded-sm uppercase transition-all hover:bg-gray-200"
+                className="px-8 py-3.5 bg-white text-black rounded-lg uppercase transition-all hover:bg-gray-200 shadow-lg hover:shadow-xl"
               >
                 Explore Projects
               </motion.button>
@@ -135,19 +135,19 @@ const HeroSection = () => {
                   fontSize: "0.875rem",
                   letterSpacing: "0.05em",
                 }}
-                className="px-8 py-3 border border-white/20 text-white rounded-sm uppercase transition-all hover:border-white/40 hover:bg-white/5"
+                className="px-8 py-3.5 border border-white/20 text-white rounded-lg uppercase transition-all hover:border-white/40 hover:bg-white/5"
               >
                 Create Project
               </motion.button>
             </Link>
           </motion.div>
 
-          {/* Stats - Numbered Cards Style */}
+          {/* Stats - Numbered Cards Style - Centered */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
           >
             {[
               {
@@ -210,26 +210,6 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-black rounded-full flex items-start justify-center p-2"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-black rounded-full"
-          />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

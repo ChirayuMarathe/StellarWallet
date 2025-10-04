@@ -1,10 +1,11 @@
-# Stellar Giveth - Blockchain Philanthropy Platform
+# ChainFund - Blockchain Philanthropy Platform
 
 A comprehensive full-stack decentralized application (dApp) built with React, Vite, Express, MongoDB, and Stellar blockchain integration. This platform enables transparent, secure, and instant donations to verified projects worldwide.
 
 ## 🌟 Features
 
 ### Frontend
+
 - **Modern UI/UX**: Premium design with smooth animations using Framer Motion
 - **Stellar Wallet Integration**: Connect with Freighter, Albedo, or LOBSTR wallets
 - **Project Discovery**: Browse and filter projects by category
@@ -14,6 +15,7 @@ A comprehensive full-stack decentralized application (dApp) built with React, Vi
 - **Dark Mode**: Professional dark theme with gradient accents
 
 ### Backend
+
 - **RESTful API**: Express.js server with MongoDB
 - **Project Management**: CRUD operations for projects
 - **Donation Tracking**: Record and verify blockchain transactions
@@ -21,6 +23,7 @@ A comprehensive full-stack decentralized application (dApp) built with React, Vi
 - **Statistics**: Real-time project and donation analytics
 
 ### Blockchain Features
+
 - **Multi-Asset Support**: XLM, USDC, and custom Stellar tokens
 - **Transaction Memos**: Track donation purposes
 - **Instant Settlement**: Leverage Stellar's fast finality
@@ -30,6 +33,7 @@ A comprehensive full-stack decentralized application (dApp) built with React, Vi
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 18+ and npm/yarn
 - MongoDB 4.4+ (local or Atlas)
 - Freighter Wallet extension (for testing)
@@ -37,12 +41,14 @@ A comprehensive full-stack decentralized application (dApp) built with React, Vi
 ### Installation
 
 1. **Clone and Install Dependencies**
+
 ```powershell
 cd Stellar
 npm install
 ```
 
 2. **Setup Environment Variables**
+
 ```powershell
 copy .env.example .env
 ```
@@ -50,21 +56,25 @@ copy .env.example .env
 Edit `.env` and configure your MongoDB connection string.
 
 3. **Start MongoDB** (if running locally)
+
 ```powershell
 # Make sure MongoDB service is running
 ```
 
 4. **Start Backend Server**
+
 ```powershell
 npm run server
 ```
 
 5. **Start Frontend Development Server** (in a new terminal)
+
 ```powershell
 npm run dev
 ```
 
 6. **Access the Application**
+
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:5000
 
@@ -93,6 +103,7 @@ Stellar/
 ## 🔧 Tech Stack
 
 ### Frontend
+
 - **React 18**: UI library
 - **Vite**: Build tool and dev server
 - **React Router**: Client-side routing
@@ -106,6 +117,7 @@ Stellar/
 - **Lucide React**: Icon library
 
 ### Backend
+
 - **Express**: Web framework
 - **MongoDB**: Database
 - **Mongoose**: ODM for MongoDB
@@ -113,6 +125,7 @@ Stellar/
 - **Dotenv**: Environment configuration
 
 ### Blockchain
+
 - **Stellar SDK**: Blockchain interactions
 - **Freighter Wallet**: Browser extension wallet
 - **Horizon API**: Stellar network access
@@ -120,13 +133,16 @@ Stellar/
 ## 🎨 Key Features Explained
 
 ### Stellar Wallet Integration
+
 The platform uses Freighter wallet for secure transaction signing:
+
 - Connect/disconnect wallet
 - View account balances
 - Sign and submit transactions
 - Switch between testnet and mainnet
 
 ### Project Donation Flow
+
 1. User browses projects
 2. Selects a project to support
 3. Connects Stellar wallet
@@ -136,6 +152,7 @@ The platform uses Freighter wallet for secure transaction signing:
 7. Receives instant confirmation
 
 ### GIVeconomy
+
 - **GIV Token**: Platform governance token
 - **GIVbacks**: Reward donors with tokens
 - **GIVpower**: Stake tokens to boost projects
@@ -144,6 +161,7 @@ The platform uses Freighter wallet for secure transaction signing:
 ## 📡 API Endpoints
 
 ### Projects
+
 - `GET /api/projects` - List all projects
 - `GET /api/projects/:slug` - Get project details
 - `POST /api/projects` - Create new project
@@ -152,12 +170,14 @@ The platform uses Freighter wallet for secure transaction signing:
 - `GET /api/projects/:id/stats` - Project statistics
 
 ### Donations
+
 - `GET /api/donations` - List all donations
 - `GET /api/donations/transaction/:hash` - Get by transaction hash
 - `POST /api/donations` - Record new donation
 - `GET /api/donations/stats/:projectId` - Donation stats
 
 ### Users
+
 - `GET /api/users/:address` - Get user profile
 - `POST /api/users` - Create/update user
 - `GET /api/users/:address/stats` - User statistics
@@ -167,14 +187,17 @@ The platform uses Freighter wallet for secure transaction signing:
 ## 🧪 Testing on Stellar Testnet
 
 1. **Get Testnet Account**
+
    - Visit: https://laboratory.stellar.org/#account-creator
    - Create and fund a testnet account
 
 2. **Install Freighter Wallet**
+
    - Add extension from https://www.freighter.app/
    - Import your testnet account
 
 3. **Switch to Testnet**
+
    - In the app, select "Testnet" from network dropdown
    - Connect your wallet
 
@@ -186,18 +209,21 @@ The platform uses Freighter wallet for secure transaction signing:
 ## 🌐 Deployment
 
 ### Frontend (Vercel/Netlify)
+
 ```powershell
 npm run build
 # Deploy the dist/ folder
 ```
 
 ### Backend (Heroku/Railway/Render)
+
 ```powershell
 # Set environment variables
 # Deploy server folder
 ```
 
 ### Environment Variables for Production
+
 - Set `MONGODB_URI` to your MongoDB Atlas connection string
 - Set `STELLAR_NETWORK=PUBLIC` for mainnet
 - Configure CORS origins
@@ -216,6 +242,7 @@ npm run build
 ## 🤝 Contributing
 
 Contributions are welcome! Please:
+
 1. Fork the repository
 2. Create a feature branch
 3. Commit your changes
@@ -229,6 +256,7 @@ MIT License - feel free to use this project for learning or production.
 ## 🆘 Support
 
 For issues or questions:
+
 - Create an issue in the repository
 - Check Stellar documentation: https://developers.stellar.org
 - Join Stellar Discord community

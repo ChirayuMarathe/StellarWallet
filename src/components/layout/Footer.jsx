@@ -39,21 +39,38 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative mt-20 border-t border-dark-700">
+    <footer className="relative mt-20 border-t border-white/10 bg-black">
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-gray-600 to-gray-500 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
                 <Globe className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-display font-bold gradient-text">
-                Stellar Giveth
+              <span
+                style={{
+                  fontFamily: "Helvetica, Arial, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "1.5rem",
+                  letterSpacing: "0.02em",
+                }}
+                className="text-white"
+              >
+                ChainFund
               </span>
             </Link>
 
-            <p className="text-gray-400 mb-6 max-w-md">
+            <p
+              style={{
+                fontFamily: "Helvetica, Arial, sans-serif",
+                fontWeight: "300",
+                fontSize: "0.95rem",
+                letterSpacing: "0.01em",
+                lineHeight: "1.6",
+              }}
+              className="text-gray-400 mb-6 max-w-md"
+            >
               Empowering changemakers through blockchain philanthropy on the
               Stellar network. Building the future of giving with transparency,
               security, and global accessibility.
@@ -67,10 +84,10 @@ const Footer = () => {
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 bg-dark-800/50 border border-dark-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300"
+                  className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all duration-300"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-5 h-5" strokeWidth={1.5} />
                 </motion.a>
               ))}
             </div>
@@ -79,7 +96,15 @@ const Footer = () => {
           {/* Links Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="text-lg font-display font-semibold text-white mb-4">
+              <h3
+                style={{
+                  fontFamily: "Helvetica, Arial, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "1rem",
+                  letterSpacing: "0.05em",
+                }}
+                className="text-white mb-4 uppercase"
+              >
                 {category}
               </h3>
               <ul className="space-y-3">
@@ -87,6 +112,12 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.path}
+                      style={{
+                        fontFamily: "Helvetica, Arial, sans-serif",
+                        fontWeight: "300",
+                        fontSize: "0.9rem",
+                        letterSpacing: "0.01em",
+                      }}
                       className="text-gray-400 hover:text-white transition-colors duration-200"
                     >
                       {link.name}
@@ -99,13 +130,29 @@ const Footer = () => {
         </div>
 
         {/* Newsletter Section */}
-        <div className="py-8 border-t border-dark-700">
+        <div className="py-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-xl font-display font-semibold text-white mb-2">
+              <h3
+                style={{
+                  fontFamily: "Helvetica, Arial, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "1.25rem",
+                  letterSpacing: "0.02em",
+                }}
+                className="text-white mb-2"
+              >
                 Stay Updated
               </h3>
-              <p className="text-gray-400">
+              <p
+                style={{
+                  fontFamily: "Helvetica, Arial, sans-serif",
+                  fontWeight: "300",
+                  fontSize: "0.9rem",
+                  letterSpacing: "0.01em",
+                }}
+                className="text-gray-400"
+              >
                 Subscribe to our newsletter for the latest updates
               </p>
             </div>
@@ -116,13 +163,25 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full pl-12 pr-4 py-3 bg-dark-800/50 border border-dark-700 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
+                  style={{
+                    fontFamily: "Helvetica, Arial, sans-serif",
+                    fontWeight: "300",
+                    fontSize: "0.9rem",
+                    letterSpacing: "0.01em",
+                  }}
+                  className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all duration-300"
                 />
               </div>
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary whitespace-nowrap"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                style={{
+                  fontFamily: "Helvetica, Arial, sans-serif",
+                  fontWeight: "400",
+                  fontSize: "0.875rem",
+                  letterSpacing: "0.05em",
+                }}
+                className="px-6 py-3 bg-white text-black rounded-lg uppercase transition-all hover:bg-gray-200 whitespace-nowrap"
               >
                 Subscribe
               </motion.button>
@@ -131,33 +190,67 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-dark-700 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-400 text-sm">
-            © 2025 Stellar Giveth. All rights reserved.
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p
+            style={{
+              fontFamily: "Helvetica, Arial, sans-serif",
+              fontWeight: "300",
+              fontSize: "0.875rem",
+              letterSpacing: "0.01em",
+            }}
+            className="text-gray-400"
+          >
+            © 2025 ChainFund. All rights reserved.
           </p>
 
-          <div className="flex items-center space-x-6 text-sm">
+          <div className="flex items-center space-x-6">
             <Link
               to="#"
+              style={{
+                fontFamily: "Helvetica, Arial, sans-serif",
+                fontWeight: "300",
+                fontSize: "0.875rem",
+                letterSpacing: "0.01em",
+              }}
               className="text-gray-400 hover:text-white transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               to="#"
+              style={{
+                fontFamily: "Helvetica, Arial, sans-serif",
+                fontWeight: "300",
+                fontSize: "0.875rem",
+                letterSpacing: "0.01em",
+              }}
               className="text-gray-400 hover:text-white transition-colors"
             >
               Terms of Service
             </Link>
             <Link
               to="#"
+              style={{
+                fontFamily: "Helvetica, Arial, sans-serif",
+                fontWeight: "300",
+                fontSize: "0.875rem",
+                letterSpacing: "0.01em",
+              }}
               className="text-gray-400 hover:text-white transition-colors"
             >
               Cookies
             </Link>
           </div>
 
-          <div className="flex items-center space-x-2 text-gray-400 text-sm">
+          <div
+            style={{
+              fontFamily: "Helvetica, Arial, sans-serif",
+              fontWeight: "300",
+              fontSize: "0.875rem",
+              letterSpacing: "0.01em",
+            }}
+            className="flex items-center space-x-2 text-gray-400"
+          >
             <span>Made with</span>
             <Heart className="w-4 h-4 text-red-500 fill-current" />
             <span>for changemakers</span>

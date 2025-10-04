@@ -69,8 +69,7 @@ const Onboarding = () => {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">
-            Get Started with{" "}
-            <span className="gradient-text">Stellar Giveth</span>
+            Get Started with <span className="gradient-text">ChainFund</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Join thousands of donors and changemakers making real impact through
@@ -127,7 +126,7 @@ const Onboarding = () => {
           className="card"
         >
           <h2 className="text-3xl font-display font-bold mb-8 text-white text-center">
-            Why Choose Stellar Giveth?
+            Why Choose ChainFund?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (
