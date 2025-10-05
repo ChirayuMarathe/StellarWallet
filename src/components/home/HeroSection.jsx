@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-32 pb-32">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-48 pb-32">
       {/* Animated Dotted Background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Dot Grid Pattern */}
@@ -73,15 +73,15 @@ const HeroSection = () => {
             style={{
               fontFamily: "Helvetica, Arial, sans-serif",
               fontWeight: "300",
-              fontSize: "clamp(3rem, 8vw, 6.5rem)",
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
               letterSpacing: "-0.02em",
               lineHeight: "1.1",
             }}
             className="text-white mb-8 tracking-tight"
           >
-            ADVANCED KEY
+            FUNDING THE
             <br />
-            <span style={{ fontWeight: "400" }}>PROTECTION</span>
+            <span style={{ fontWeight: "400" }}>FUTURE</span>
           </motion.h1>
 
           {/* Subtitle - Centered */}
@@ -98,8 +98,7 @@ const HeroSection = () => {
             }}
             className="text-gray-400 mb-12 max-w-2xl mx-auto"
           >
-            ChainFund's smart backup developed with cutting-edge technology,
-            ensures your private keys are secure and accessible.
+            ChainFund connects blockchain innovation with real-world impact, funding sustainable development projects and supporting emerging technologies through transparent, decentralized giving.
           </motion.p>
 
           {/* CTA Buttons - Centered */}
@@ -152,18 +151,18 @@ const HeroSection = () => {
             {[
               {
                 number: "01",
-                title: "Verified Projects",
-                desc: "The platform generates a unique private key that remains hidden.",
+                title: "Discover Projects",
+                desc: "Explore verified blockchain projects making real-world impact in sustainable development, education, and emerging technologies.",
               },
               {
                 number: "02",
-                title: "Secure Transfer",
-                desc: "Projects securely connect to transfer your encrypted private keys safely.",
+                title: "Secure Donations",
+                desc: "Contribute to projects through our secure, transparent donation platform powered by Stellar blockchain technology.",
               },
               {
                 number: "03",
-                title: "Distributed Keys",
-                desc: "Keys are distributed across three cards with no other copies existing.",
+                title: "Track Impact",
+                desc: "Monitor your contributions and see the real-world change your donations create through our comprehensive impact tracking system.",
               },
             ].map((stat, index) => (
               <motion.div

@@ -5,6 +5,7 @@ export const projectsData = [
     slug: "stellar-defi-liquidity-protocol",
     title: "Stellar DeFi Liquidity Protocol",
     category: "DeFi Infrastructure",
+    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=400&fit=crop",
     description:
       "Next-generation automated market maker with concentrated liquidity and minimal slippage for Stellar network.",
     fullDescription: `This project is building a cutting-edge decentralized exchange protocol on Stellar that implements concentrated liquidity positions, allowing liquidity providers to earn higher fees while reducing slippage for traders.
@@ -139,6 +140,7 @@ The protocol has completed security audits by Trail of Bits and CertiK, with tes
     slug: "decentralized-identity-system",
     title: "Decentralized Identity System",
     category: "Identity & Privacy",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&fit=crop",
     description:
       "Self-sovereign identity solution with zero-knowledge proofs for privacy-preserving authentication on Stellar.",
     fullDescription: `Building a comprehensive decentralized identity (DID) framework that enables users to control their digital identity without relying on centralized authorities.
@@ -260,6 +262,7 @@ We've partnered with several major DeFi protocols planning to integrate our iden
     slug: "cross-chain-nft-marketplace",
     title: "Cross-Chain NFT Marketplace",
     category: "NFT & Gaming",
+    image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&h=400&fit=crop",
     description:
       "Unified NFT marketplace supporting cross-chain trading, fractional ownership, and gasless transactions on Stellar.",
     fullDescription: `Revolutionary NFT marketplace that breaks down barriers between blockchain ecosystems, allowing seamless trading of NFTs across multiple chains.
@@ -397,6 +400,7 @@ Beta testing with 500+ creators has shown 90% reduction in transaction costs com
     slug: "layer2-scaling-solution",
     title: "Stellar Layer 2 Scaling Protocol",
     category: "Layer 2 & Scaling",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     description:
       "High-throughput Layer 2 solution with optimistic rollups for scaling Stellar to millions of transactions per second.",
     fullDescription: `Advanced Layer 2 scaling infrastructure that dramatically increases Stellar's transaction throughput while maintaining security and decentralization.
@@ -518,6 +522,7 @@ Currently in audit phase with mainnet launch planned for Q2 2026.`,
     slug: "smart-contract-security-toolkit",
     title: "Smart Contract Security Toolkit",
     category: "Developer Tools",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     description:
       "Comprehensive security analysis and formal verification tools for Stellar smart contracts and Soroban.",
     fullDescription: `Professional-grade security toolkit designed specifically for Stellar's Soroban smart contract platform, helping developers identify vulnerabilities before deployment.
@@ -643,6 +648,7 @@ Open-source core with premium enterprise features. All proceeds fund ongoing res
     slug: "privacy-preserving-payment-network",
     title: "Privacy-Preserving Payment Network",
     category: "Privacy Technology",
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=400&fit=crop",
     description:
       "Anonymous payment protocol using ring signatures and stealth addresses for confidential transactions on Stellar.",
     fullDescription: `Advanced privacy protocol that brings Monero-level anonymity to Stellar network while maintaining regulatory compliance options.
@@ -755,6 +761,789 @@ Cryptographic foundations audited by academic cryptography experts from MIT and 
         donor: "Anonymous",
         amount: 15000,
         date: "2025-09-01",
+        anonymous: true,
+      },
+    ],
+  },
+  {
+    id: 7,
+    slug: "ai-powered-trading-bot",
+    title: "AI-Powered Trading Bot",
+    category: "Trading & Analytics",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop",
+    description:
+      "Advanced algorithmic trading bot using machine learning for optimal trade execution and risk management on Stellar DEXs.",
+    fullDescription: `Intelligent trading automation platform that leverages artificial intelligence and machine learning to optimize trading strategies on Stellar's decentralized exchanges.
+
+Key capabilities:
+• Machine learning algorithms for market prediction and trend analysis
+• Automated risk management with dynamic position sizing
+• High-frequency trading with sub-millisecond execution
+• Multi-strategy portfolio management across Stellar assets
+• Real-time market data analysis from multiple sources
+• Backtesting engine with historical Stellar network data
+
+Our AI models are trained on 5+ years of Stellar transaction data, achieving 23% better returns than traditional strategies in backtesting. The bot supports both spot and margin trading with integrated liquidation protection.
+
+Currently in beta with 500+ active users, generating an average of 18% monthly returns for conservative strategies.`,
+    raised: 112300,
+    goal: 175000,
+    donors: 398,
+    upvotes: 267,
+    downvotes: 9,
+    verified: true,
+    givbacksEligible: true,
+    location: "Decentralized",
+    milestones: [
+      {
+        id: 1,
+        title: "AI Model Development & Training",
+        amount: 40000,
+        completed: true,
+        date: "2025-05-20",
+      },
+      {
+        id: 2,
+        title: "Trading Engine & Risk Management",
+        amount: 70000,
+        completed: true,
+        date: "2025-08-10",
+      },
+      {
+        id: 3,
+        title: "Beta Testing & Performance Optimization",
+        amount: 105000,
+        completed: false,
+        date: "2025-11-15",
+      },
+      {
+        id: 4,
+        title: "Mobile App & Advanced Features",
+        amount: 140000,
+        completed: false,
+        date: "2026-01-30",
+      },
+      {
+        id: 5,
+        title: "Institutional Features & API",
+        amount: 175000,
+        completed: false,
+        date: "2026-04-15",
+      },
+    ],
+    creator: {
+      name: "Quantum Trading Labs",
+      address: "GQTL...X9MN",
+      stellarAddress:
+        "GQTLX9MNQPVX2HK3M5LXBWY7AQVNFT2LABSQPVX9WZGQTLX9MNQPVX", // Testnet address
+      verified: true,
+      memberSince: "2024",
+    },
+    updates: [
+      {
+        id: 1,
+        title: "Beta Launch with 500 Users",
+        content:
+          "Public beta launched with advanced AI strategies. Users reporting 15-25% monthly returns in conservative mode.",
+        date: "2025-09-18",
+        author: "Product Team",
+      },
+      {
+        id: 2,
+        title: "New ML Model Deployed",
+        content:
+          "Latest model incorporates sentiment analysis from crypto news and social media for improved predictions.",
+        date: "2025-08-30",
+        author: "AI Team",
+      },
+    ],
+    donations: [
+      {
+        id: 1,
+        donor: "Crypto Trader",
+        amount: 15000,
+        date: "2025-09-20",
+        anonymous: false,
+      },
+      {
+        id: 2,
+        donor: "Anonymous",
+        amount: 22000,
+        date: "2025-09-12",
+        anonymous: true,
+      },
+      {
+        id: 3,
+        donor: "Trading Firm",
+        amount: 30000,
+        date: "2025-09-05",
+        anonymous: false,
+      },
+      {
+        id: 4,
+        donor: "Anonymous",
+        amount: 18000,
+        date: "2025-08-25",
+        anonymous: true,
+      },
+    ],
+  },
+  {
+    id: 8,
+    slug: "decentralized-oracle-network",
+    title: "Decentralized Oracle Network",
+    category: "Infrastructure",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    description:
+      "Secure and reliable oracle network providing real-world data feeds to Stellar smart contracts with economic security.",
+    fullDescription: `Comprehensive oracle infrastructure that bridges real-world data with Stellar's blockchain, enabling smart contracts to access external information securely and reliably.
+
+Network features:
+• Decentralized oracle nodes with economic staking
+• Multi-source data aggregation with outlier detection
+• Price feeds for 2000+ assets including crypto, stocks, commodities
+• Weather, sports, and IoT data integration
+• Verifiable randomness generation for gaming and NFTs
+• Cross-chain data bridging capabilities
+
+Our network uses a novel consensus mechanism combining proof-of-stake with data validation, ensuring 99.9% uptime and sub-second response times. Oracles are economically secured with $50M+ staked assets.
+
+Already powering 50+ DeFi protocols on Stellar with zero data manipulation incidents in 18 months of operation.`,
+    raised: 187500,
+    goal: 250000,
+    donors: 567,
+    upvotes: 423,
+    downvotes: 14,
+    verified: true,
+    givbacksEligible: true,
+    location: "Decentralized",
+    milestones: [
+      {
+        id: 1,
+        title: "Oracle Protocol Design & Research",
+        amount: 50000,
+        completed: true,
+        date: "2025-03-15",
+      },
+      {
+        id: 2,
+        title: "Core Network Development",
+        amount: 100000,
+        completed: true,
+        date: "2025-07-01",
+      },
+      {
+        id: 3,
+        title: "Data Source Integration & Testing",
+        amount: 150000,
+        completed: true,
+        date: "2025-09-20",
+      },
+      {
+        id: 4,
+        title: "Mainnet Launch & Staking",
+        amount: 200000,
+        completed: false,
+        date: "2025-12-01",
+      },
+      {
+        id: 5,
+        title: "Enterprise Solutions & Expansion",
+        amount: 250000,
+        completed: false,
+        date: "2026-03-15",
+      },
+    ],
+    creator: {
+      name: "Oracle Network Foundation",
+      address: "GONF...Q8WX",
+      stellarAddress:
+        "GONFQ8WXQPVX2HK3M5LXBWY7AQVNFT2LABSQPVX9WZGONFQ8WXQPVX", // Testnet address
+      verified: true,
+      memberSince: "2023",
+    },
+    updates: [
+      {
+        id: 1,
+        title: "50 Protocols Integrated",
+        content:
+          "Our oracle network now powers lending protocols, DEXs, and prediction markets with 99.9% uptime.",
+        date: "2025-09-25",
+        author: "Integration Team",
+      },
+      {
+        id: 2,
+        title: "Cross-Chain Data Bridge Live",
+        content:
+          "New feature allows Stellar contracts to access data from Ethereum, Polygon, and other chains.",
+        date: "2025-09-10",
+        author: "Bridge Team",
+      },
+    ],
+    donations: [
+      {
+        id: 1,
+        donor: "DeFi Protocol",
+        amount: 35000,
+        date: "2025-09-22",
+        anonymous: false,
+      },
+      {
+        id: 2,
+        donor: "Anonymous",
+        amount: 45000,
+        date: "2025-09-15",
+        anonymous: true,
+      },
+      {
+        id: 3,
+        donor: "Blockchain Foundation",
+        amount: 40000,
+        date: "2025-09-08",
+        anonymous: false,
+      },
+      {
+        id: 4,
+        donor: "Anonymous",
+        amount: 25000,
+        date: "2025-08-30",
+        anonymous: true,
+      },
+    ],
+  },
+  {
+    id: 9,
+    slug: "carbon-credit-trading-platform",
+    title: "Carbon Credit Trading Platform",
+    category: "Sustainability",
+    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=400&fit=crop",
+    description:
+      "Blockchain-based platform for trading carbon credits with transparent tracking and automated offset verification on Stellar.",
+    fullDescription: `Revolutionary platform that tokenizes carbon credits on Stellar, enabling transparent and efficient trading of environmental assets for climate action.
+
+Platform features:
+• Tokenized carbon credits with unique serial numbers
+• Automated verification using satellite imagery and IoT sensors
+• Fractional ownership for accessible investing
+• Smart contract automation for offset retirement
+• Integration with major carbon registries (Gold Standard, Verra)
+• Real-time impact tracking and reporting
+
+Our platform processes 10,000+ tons of CO2 offsets monthly, with credits backed by verified reforestation, renewable energy, and efficiency projects. Using Stellar's fast and cheap transactions, we reduce trading costs by 95% compared to traditional markets.
+
+Partnered with 20+ corporations and NGOs, facilitating $50M+ in carbon trading volume.`,
+    raised: 98400,
+    goal: 160000,
+    donors: 445,
+    upvotes: 356,
+    downvotes: 11,
+    verified: true,
+    givbacksEligible: true,
+    location: "Global",
+    milestones: [
+      {
+        id: 1,
+        title: "Carbon Credit Tokenization Protocol",
+        amount: 35000,
+        completed: true,
+        date: "2025-04-10",
+      },
+      {
+        id: 2,
+        title: "Verification System Development",
+        amount: 70000,
+        completed: true,
+        date: "2025-07-25",
+      },
+      {
+        id: 3,
+        title: "Registry Integration & Testing",
+        amount: 105000,
+        completed: false,
+        date: "2025-11-05",
+      },
+      {
+        id: 4,
+        title: "Trading Platform Launch",
+        amount: 140000,
+        completed: false,
+        date: "2026-01-20",
+      },
+      {
+        id: 5,
+        title: "Global Expansion & Partnerships",
+        amount: 160000,
+        completed: false,
+        date: "2026-04-30",
+      },
+    ],
+    creator: {
+      name: "Climate Chain Foundation",
+      address: "GCCF...N2KL",
+      stellarAddress:
+        "GCCFN2KLQPVX2HK3M5LXBWY7AQVNFT2LABSQPVX9WZGCCFN2KLQPVX", // Testnet address
+      verified: true,
+      memberSince: "2024",
+    },
+    updates: [
+      {
+        id: 1,
+        title: "Gold Standard Registry Integration",
+        content:
+          "Successfully integrated with Gold Standard carbon registry, enabling trading of verified carbon credits.",
+        date: "2025-09-28",
+        author: "Integration Team",
+      },
+      {
+        id: 2,
+        title: "First Corporate Partnership",
+        content:
+          "Major tech company commits to offsetting 100,000 tons of CO2 through our platform.",
+        date: "2025-09-15",
+        author: "Partnership Team",
+      },
+    ],
+    donations: [
+      {
+        id: 1,
+        donor: "Environmental NGO",
+        amount: 12000,
+        date: "2025-09-26",
+        anonymous: false,
+      },
+      {
+        id: 2,
+        donor: "Anonymous",
+        amount: 25000,
+        date: "2025-09-18",
+        anonymous: true,
+      },
+      {
+        id: 3,
+        donor: "Green Tech Company",
+        amount: 18000,
+        date: "2025-09-10",
+        anonymous: false,
+      },
+      {
+        id: 4,
+        donor: "Anonymous",
+        amount: 15000,
+        date: "2025-08-28",
+        anonymous: true,
+      },
+    ],
+  },
+  {
+    id: 10,
+    slug: "stellar-gaming-metaverse",
+    title: "Stellar Gaming Metaverse",
+    category: "NFT & Gaming",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=400&fit=crop",
+    description:
+      "Immersive gaming metaverse built on Stellar with play-to-earn mechanics, NFT assets, and cross-game interoperability.",
+    fullDescription: `Next-generation gaming ecosystem that combines blockchain technology with immersive virtual worlds, creating economic opportunities for players worldwide.
+
+Metaverse features:
+• Cross-game NFT assets and character progression
+• Play-to-earn mechanics with sustainable tokenomics
+• Decentralized land ownership and development
+• Social hubs with voice chat and events
+• Tournament system with prize pools
+• Creator tools for user-generated content
+
+Our metaverse hosts 50,000+ daily active users across multiple games, with $2M+ in monthly player earnings. Using Stellar's fast transactions, we enable instant item trading and seamless cross-game asset movement.
+
+Partnerships with major game studios bringing traditional gaming audiences to Web3.`,
+    raised: 245600,
+    goal: 400000,
+    donors: 892,
+    upvotes: 678,
+    downvotes: 34,
+    verified: true,
+    givbacksEligible: true,
+    location: "Virtual",
+    milestones: [
+      {
+        id: 1,
+        title: "Core Metaverse Engine Development",
+        amount: 80000,
+        completed: true,
+        date: "2025-02-28",
+      },
+      {
+        id: 2,
+        title: "First Game Integration",
+        amount: 160000,
+        completed: true,
+        date: "2025-06-15",
+      },
+      {
+        id: 3,
+        title: "Cross-Game Asset System",
+        amount: 240000,
+        completed: true,
+        date: "2025-09-01",
+      },
+      {
+        id: 4,
+        title: "Land Sales & Creator Tools",
+        amount: 320000,
+        completed: false,
+        date: "2025-12-15",
+      },
+      {
+        id: 5,
+        title: "Mobile Expansion & Global Launch",
+        amount: 400000,
+        completed: false,
+        date: "2026-03-30",
+      },
+    ],
+    creator: {
+      name: "MetaGame Studios",
+      address: "GMGS...T4UV",
+      stellarAddress:
+        "GMGST4UVQPVX2HK3M5LXBWY7AQVNFT2LABSQPVX9WZGMGST4UVQPVX", // Testnet address
+      verified: true,
+      memberSince: "2023",
+    },
+    updates: [
+      {
+        id: 1,
+        title: "50,000 Daily Active Users Milestone",
+        content:
+          "Metaverse reaches 50K DAU with players earning average $15/day through gameplay and tournaments.",
+        date: "2025-09-20",
+        author: "Community Team",
+      },
+      {
+        id: 2,
+        title: "Major Game Studio Partnership",
+        content:
+          "Leading mobile game developer integrates their 10M+ user game into our metaverse ecosystem.",
+        date: "2025-08-25",
+        author: "Partnership Team",
+      },
+      {
+        id: 3,
+        title: "Virtual Land Auction Success",
+        content:
+          "First virtual land auction raises 500,000 XLM for community development fund.",
+        date: "2025-07-30",
+        author: "Economy Team",
+      },
+    ],
+    donations: [
+      {
+        id: 1,
+        donor: "Game Developer",
+        amount: 25000,
+        date: "2025-09-22",
+        anonymous: false,
+      },
+      {
+        id: 2,
+        donor: "Anonymous",
+        amount: 60000,
+        date: "2025-09-15",
+        anonymous: true,
+      },
+      {
+        id: 3,
+        donor: "Gaming Guild",
+        amount: 35000,
+        date: "2025-09-08",
+        anonymous: false,
+      },
+      {
+        id: 4,
+        donor: "NFT Collector",
+        amount: 28000,
+        date: "2025-08-30",
+        anonymous: false,
+      },
+      {
+        id: 5,
+        donor: "Anonymous",
+        amount: 20000,
+        date: "2025-08-20",
+        anonymous: true,
+      },
+    ],
+  },
+  {
+    id: 11,
+    slug: "cross-chain-bridge-protocol",
+    title: "Cross-Chain Bridge Protocol",
+    category: "Infrastructure",
+    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop",
+    description:
+      "Universal bridge protocol enabling seamless asset transfers between Stellar and 15+ major blockchains with institutional security.",
+    fullDescription: `Advanced interoperability protocol that connects Stellar with major blockchains, enabling secure and efficient cross-chain asset transfers.
+
+Bridge capabilities:
+• 15+ supported chains (Ethereum, BSC, Polygon, Solana, Avalanche, etc.)
+• Institutional-grade security with multi-sig and MPC
+• Fast finality with optimistic validation
+• Native asset wrapping and synthetic token creation
+• Cross-chain smart contract calls
+• Liquidity mining incentives for bridge usage
+
+Our bridge processes $500M+ in daily volume with zero security incidents. Using a hybrid security model combining multi-party computation with optimistic validation, we achieve both speed and security.
+
+Integrated with major DEXs and lending protocols across all supported chains.`,
+    raised: 312000,
+    goal: 500000,
+    donors: 734,
+    upvotes: 589,
+    downvotes: 27,
+    verified: true,
+    givbacksEligible: true,
+    location: "Decentralized",
+    milestones: [
+      {
+        id: 1,
+        title: "Bridge Protocol Architecture",
+        amount: 75000,
+        completed: true,
+        date: "2025-01-15",
+      },
+      {
+        id: 2,
+        title: "Multi-Chain Integration (5 chains)",
+        amount: 150000,
+        completed: true,
+        date: "2025-05-01",
+      },
+      {
+        id: 3,
+        title: "Security Audit & MPC Implementation",
+        amount: 225000,
+        completed: true,
+        date: "2025-08-20",
+      },
+      {
+        id: 4,
+        title: "Mainnet Launch & Liquidity Mining",
+        amount: 375000,
+        completed: false,
+        date: "2025-11-30",
+      },
+      {
+        id: 5,
+        title: "Full Chain Expansion & DeFi Integration",
+        amount: 500000,
+        completed: false,
+        date: "2026-02-28",
+      },
+    ],
+    creator: {
+      name: "Interoperability Labs",
+      address: "GILB...S5YZ",
+      stellarAddress:
+        "GILBS5YZQPVX2HK3M5LXBWY7AQVNFT2LABSQPVX9WZGILBS5YZQPVX", // Testnet address
+      verified: true,
+      memberSince: "2023",
+    },
+    updates: [
+      {
+        id: 1,
+        title: "Bridge Volume Hits $500M Daily",
+        content:
+          "Cross-chain transfers exceed $500M in daily volume, connecting Stellar with 12 major blockchains.",
+        date: "2025-09-28",
+        author: "Operations Team",
+      },
+      {
+        id: 2,
+        title: "New Chain Integration: Solana",
+        content:
+          "Solana integration complete with full asset support. Users can now bridge SOL and SPL tokens to Stellar.",
+        date: "2025-09-12",
+        author: "Integration Team",
+      },
+      {
+        id: 3,
+        title: "Institutional Security Audit Passed",
+        content:
+          "Comprehensive security audit by Trail of Bits completed with zero critical findings.",
+        date: "2025-08-18",
+        author: "Security Team",
+      },
+    ],
+    donations: [
+      {
+        id: 1,
+        donor: "Blockchain Foundation",
+        amount: 50000,
+        date: "2025-09-25",
+        anonymous: false,
+      },
+      {
+        id: 2,
+        donor: "Anonymous",
+        amount: 75000,
+        date: "2025-09-18",
+        anonymous: true,
+      },
+      {
+        id: 3,
+        donor: "DeFi Protocol",
+        amount: 45000,
+        date: "2025-09-10",
+        anonymous: false,
+      },
+      {
+        id: 4,
+        donor: "Crypto Exchange",
+        amount: 60000,
+        date: "2025-08-28",
+        anonymous: false,
+      },
+      {
+        id: 5,
+        donor: "Anonymous",
+        amount: 35000,
+        date: "2025-08-15",
+        anonymous: true,
+      },
+    ],
+  },
+  {
+    id: 12,
+    slug: "decentralized-social-media-platform",
+    title: "Decentralized Social Media Platform",
+    category: "Social & Content",
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
+    description:
+      "Censorship-resistant social media platform built on Stellar with creator monetization, NFT integration, and algorithmic transparency.",
+    fullDescription: `Privacy-focused social media ecosystem that gives users control over their data and content, while fairly compensating creators for their contributions.
+
+Platform features:
+• Decentralized content storage with IPFS integration
+• Creator monetization through micro-donations and NFTs
+• Transparent algorithms with user-controlled feeds
+• End-to-end encrypted messaging and groups
+• NFT profile pictures and collectible content
+• Cross-platform content portability
+
+Our platform hosts 100,000+ active users generating $1.2M in monthly creator earnings. Using Stellar's payment system, we enable instant micro-payments and tipping with zero fees for creators.
+
+Unique governance model gives users voting rights on platform changes and content moderation policies.`,
+    raised: 156800,
+    goal: 225000,
+    donors: 623,
+    upvotes: 489,
+    downvotes: 22,
+    verified: true,
+    givbacksEligible: true,
+    location: "Decentralized",
+    milestones: [
+      {
+        id: 1,
+        title: "Social Protocol & Smart Contracts",
+        amount: 45000,
+        completed: true,
+        date: "2025-03-10",
+      },
+      {
+        id: 2,
+        title: "Content System & IPFS Integration",
+        amount: 90000,
+        completed: true,
+        date: "2025-06-20",
+      },
+      {
+        id: 3,
+        title: "Monetization Features & Beta Launch",
+        amount: 135000,
+        completed: true,
+        date: "2025-09-05",
+      },
+      {
+        id: 4,
+        title: "Mobile Apps & Advanced Features",
+        amount: 180000,
+        completed: false,
+        date: "2025-12-20",
+      },
+      {
+        id: 5,
+        title: "Global Scaling & Partnerships",
+        amount: 225000,
+        completed: false,
+        date: "2026-03-10",
+      },
+    ],
+    creator: {
+      name: "Social Web Foundation",
+      address: "GSWF...B7CD",
+      stellarAddress:
+        "GSWFB7CDQPVX2HK3M5LXBWY7AQVNFT2LABSQPVX9WZG SWFB7CDQPVX", // Testnet address
+      verified: true,
+      memberSince: "2024",
+    },
+    updates: [
+      {
+        id: 1,
+        title: "100K Users & $1.2M Creator Earnings",
+        content:
+          "Platform reaches 100,000 active users with creators earning average $120/month through donations and NFTs.",
+        date: "2025-09-22",
+        author: "Growth Team",
+      },
+      {
+        id: 2,
+        title: "NFT Content Integration",
+        content:
+          "Users can now mint posts and threads as NFTs, creating new monetization opportunities for content creators.",
+        date: "2025-09-08",
+        author: "Product Team",
+      },
+      {
+        id: 3,
+        title: "Algorithmic Transparency Feature",
+        content:
+          "New feature allows users to see and modify how their feed algorithm works, promoting transparency.",
+        date: "2025-08-20",
+        author: "Engineering Team",
+      },
+    ],
+    donations: [
+      {
+        id: 1,
+        donor: "Content Creator",
+        amount: 18000,
+        date: "2025-09-24",
+        anonymous: false,
+      },
+      {
+        id: 2,
+        donor: "Anonymous",
+        amount: 35000,
+        date: "2025-09-16",
+        anonymous: true,
+      },
+      {
+        id: 3,
+        donor: "Privacy Advocate",
+        amount: 22000,
+        date: "2025-09-09",
+        anonymous: false,
+      },
+      {
+        id: 4,
+        donor: "Social Media User",
+        amount: 15000,
+        date: "2025-08-31",
+        anonymous: false,
+      },
+      {
+        id: 5,
+        donor: "Anonymous",
+        amount: 12000,
+        date: "2025-08-18",
         anonymous: true,
       },
     ],
